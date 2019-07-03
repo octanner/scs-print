@@ -1,0 +1,36 @@
+{
+    "name":"scs-print",
+    "version":"1.0.0",
+    "author":"",
+    "location":"octanner/scs-print#v0.0.0",
+    "homepage":"https://github.com/octanner/scs-print",
+    "documentation":"https://github.com/octanner/scs-print",
+    "repository":{
+        "type":"git",
+        "URL":"https://github.com/octanner/scs-print"
+    },
+    "bugs":"https://github.com/octanner/scs-print/issues",
+    "slug":"scs-print",
+    "shortDescription":"A Module to help send jobs to the scs-print-api",
+    "description":"A Module to help send jobs to the scs-print-api",
+    "type":"modules",
+    "dependencies":{},
+    "devDependencies":{
+        "coldbox":"^4.3.0+188",
+        "testbox":"^2.4.0+80"
+    },
+    "installPaths":{
+        "testbox":"testbox",
+        "coldbox":"tests/resources/app/coldbox"
+    },
+    "scripts":{
+        "postVersion":"package set location='octanner/scs-print#v`package version`'",
+        "onRelease":"publish",
+        "postPublish":"!git push && !git push --tags"
+    },
+    "ignore":[
+        "**/.*",
+        "test",
+        "tests"
+    ]
+}

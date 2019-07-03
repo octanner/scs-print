@@ -1,0 +1,8 @@
+/testbox
+/tests/results
+/tests/resources/app/coldbox
+/node_modules
+/modules
+*.sublime-workspace
+.env
+server.json
