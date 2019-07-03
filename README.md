@@ -47,7 +47,7 @@ to use it
 ```
 scs-print-api.scsPrint(printer = [printer], fullPath = [fullPathToFIle]);
 ```
-Here are additional parameters with their default values (but are not required).
+Here are additional parameters with their default values (but are not required.)
 ```
 required string printer,
 required string fullPath,
