@@ -50,11 +50,11 @@ component singleton
         ){
         var myRequest= serializeJSON({
             printer = arguments.printer,
-            base64String = "",
-            fileExtension,
-            copies,
-            layout,
-            scale
+            base64String = arguments.base64String,
+            fileExtension =arguments.fileExtension,
+            copies = arguments.copies,
+            layout = arguments.layout,
+            scale = scale
         });
 
         return myRequest;
