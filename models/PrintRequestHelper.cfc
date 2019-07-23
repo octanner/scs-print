@@ -61,7 +61,7 @@ component singleton
     }
 
     public any function fileNameInfo(required fileFullPath){
-        var tempFileInfo = fileInfo(arguments.fileFullPath);
+        var tempFileInfo = getFileInfo(arguments.fileFullPath);
         var additionalFields = {
             // "file": ListLast(arguments.fileFullPath,"/*"),
             "fileName": ListFirst( ListLast(arguments.fileFullPath,"/*"),"."),
