@@ -13,7 +13,7 @@ component singleton
         string layout = "portrait",
         numeric scale = 100
     ){
-        var fileExt = fileNameInfo(arguments.fullPath).fileExtension;
+        var fileExt = fileInfo(arguments.fullPath).fileExtension;
 
         if ( isAllowedFileExtensions(fileExt) ){
             try {
@@ -27,8 +27,8 @@ component singleton
                 );
             }
             catch (any e) {
-                var customMessage = ": Error Sending the Print Request: """ & e.Detail & ".";
-                e.detail = customMessage;
+                var message = ": Error Sending the Print Request: """ & e.Detail & ".";
+                e.detail = message;
                 rethrow;          
             }
         }
@@ -39,7 +39,7 @@ component singleton
         }
     }
 
-    public any function fileNameInfo( required fullPath ){
+    public any function fileInfo( required fullPath ){
         var fileInfo = getFileInfo(arguments.fullPath);
         var addtionalFileInfo = {
             "fileName": ListFirst( ListLast(arguments.fullPath,"/*"),"."),
