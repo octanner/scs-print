@@ -82,12 +82,11 @@ component singleton
             string layout = "portrait",
             numeric scale = 100
     ){
-        var routeURL = settings.apiUrl;
        
         cfhttp(
             method = "post",
             charset = "utf-8",
-            url = routeURL,
+            url = settings.apiUrl,
             result = "result"
         ) {
             cfhttpparam( name = "printer", type = "formfield", value = arguments.printer);
