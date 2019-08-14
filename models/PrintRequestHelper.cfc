@@ -6,7 +6,7 @@ component singleton
         return this;
     }
 
-    public function scsPrint(
+    public function print(
         required string printer,
         required string fullPath,
         numeric copies = 1,
@@ -46,6 +46,7 @@ component singleton
             "fileExtension":ListLast(arguments.fileFullPath,"/*.")
         };
         StructAppend(tempFileInfo, additionalFields, false);
+        
         return tempFileInfo;
     }
 
@@ -65,6 +66,7 @@ component singleton
                 booleanResponse = false;
                 break;
         }
+
         return booleanResponse;
     }
 
@@ -79,7 +81,7 @@ component singleton
             numeric copies = 1,
             string layout = "portrait",
             numeric scale = 100
-            ){
+    ){
         var routeURL = settings.apiUrl;
        
         cfhttp(
@@ -95,6 +97,7 @@ component singleton
             cfhttpparam( name = "layout", type = "formfield", value = arguments.layout);
             cfhttpparam( name = "scale", type = "formfield", value = arguments.scale);
         }
+
         return result;
     }
 
