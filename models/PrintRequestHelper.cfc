@@ -1,6 +1,6 @@
 component singleton
 {
-    property name="scsPrint" inject="coldbox:setting:scs-print";
+    property name="settings" inject="coldbox:setting:scs-print";
 
     public function init(){
         return this;
@@ -102,7 +102,7 @@ component singleton
             string layout = "portrait",
             numeric scale = 100
             ){
-        var routeURL = scsPrint.apiUrl;
+        var routeURL = settings.apiUrl;
        
         cfhttp(
             method="post",
