@@ -39,35 +39,35 @@ component singleton
         }
     }
 
-    public any function fileNameInfo(required fileFullPath){
-        var tempFileInfo = getFileInfo(arguments.fileFullPath);
-        var additionalFields = {
-            "fileName": ListFirst( ListLast(arguments.fileFullPath,"/*"),"."),
-            "fileExtension":ListLast(arguments.fileFullPath,"/*.")
+    public any function fileNameInfo( required fullPath ){
+        var fileInfo = getFileInfo(arguments.fullPath);
+        var addtionalFileInfo = {
+            "fileName": ListFirst( ListLast(arguments.fullPath,"/*"),"."),
+            "fileExtension":ListLast(arguments.fullPath,"/*.")
         };
-        StructAppend(tempFileInfo, additionalFields, false);
+        StructAppend(fileInfo, addtionalFileInfo, false);
         
-        return tempFileInfo;
+        return fileInfo;
     }
 
     public boolean function isAllowedFileExtensions( required fileExtention ){
-        var booleanResponse = false;
+        var isAllowed = false;
         switch( LCase(arguments.fileExtention) ) {
             case "txt":
-                booleanResponse = false;
+                isAllowed = false;
                 break;
             case "pdf":
-                booleanResponse = true;
+                isAllowed = true;
                 break;
             case "xls":
-                booleanResponse = false;
+                isAllowed = false;
                 break;                
             default: 
-                booleanResponse = false;
+                isAllowed = false;
                 break;
         }
 
-        return booleanResponse;
+        return isAllowed;
     }
 
     public function fullPathToBase64( required fullPath ){
@@ -75,12 +75,12 @@ component singleton
     }
 
     public any function sendPrintRequest(
-            required string printer,
-            required string base64String,
-            required string fileExtension,
-            numeric copies = 1,
-            string layout = "portrait",
-            numeric scale = 100
+        required string printer,
+        required string base64String,
+        required string fileExtension,
+        numeric copies = 1,
+        string layout = "portrait",
+        numeric scale = 100
     ){
        
         cfhttp(
