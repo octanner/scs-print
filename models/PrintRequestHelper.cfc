@@ -53,15 +53,9 @@ component singleton
     public boolean function isAllowedFileExtensions( required fileExtention ){
         var isAllowed = false;
         switch( LCase(arguments.fileExtention) ) {
-            case "txt":
-                isAllowed = false;
-                break;
             case "pdf":
                 isAllowed = true;
-                break;
-            case "xls":
-                isAllowed = false;
-                break;                
+                break;             
             default: 
                 isAllowed = false;
                 break;
