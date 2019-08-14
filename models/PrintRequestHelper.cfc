@@ -39,27 +39,6 @@ component singleton
             }
     }
 
-    public string function genratePrintRequest(
-            required string printer,
-            required string base64String,
-            required string fileExtension,
-            numeric copies = 1,
-            string layout = "portrait",
-            numeric scale = 100
-
-        ){
-        var myRequest= serializeJSON({
-            printer = arguments.printer,
-            base64String = arguments.base64String,
-            fileExtension =arguments.fileExtension,
-            copies = arguments.copies,
-            layout = arguments.layout,
-            scale = scale
-        });
-
-        return myRequest;
-    }
-
     public any function fileNameInfo(required fileFullPath){
         var tempFileInfo = getFileInfo(arguments.fileFullPath);
         var additionalFields = {
