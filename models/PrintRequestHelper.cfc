@@ -27,13 +27,15 @@ component singleton
                 );
             }
             catch (any e) {
-                var message = ": Error Sending the Print Request: """ & e.Detail & ".";
-                e.detail = message;
-                rethrow;          
+                throw(
+                    message="Error Processing the Print Request.",
+                    detail= e.detail 
+                );          
             }
         }
         else{
-            throw( message="Error: Processing the Print Request.",
+            throw(
+                message="Error Processing the Print Request.",
                 detail="You attempted to print a file with extension """ & fileExt & """. That extension is currently not allowed."
              );
         }
