@@ -6,3 +6,4 @@
 *.sublime-workspace
 .env
 server.json
+yarn.lock
