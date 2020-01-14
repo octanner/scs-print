@@ -83,7 +83,7 @@ component singleton
             method = "post",
             charset = "utf-8",
             url = settings.apiUrl,
-            result = "result"
+            result = "local.result"
         ) {
             cfhttpparam( name = "printer", type = "formfield", value = arguments.printer);
             cfhttpparam( name = "base64String", type = "formfield", value = arguments.base64String);
