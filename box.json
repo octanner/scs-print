@@ -1,8 +1,8 @@
 {
     "name":"scs-print",
-    "version":"1.3.0",
+    "version":"-minor",
     "author":"",
-    "location":"octanner/scs-print#1.3.0",
+    "location":"octanner/scs-print#v-minor",
     "homepage":"https://github.com/octanner/scs-print",
     "documentation":"https://github.com/octanner/scs-print",
     "repository":{
