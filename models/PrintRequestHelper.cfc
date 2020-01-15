@@ -17,7 +17,7 @@ component singleton
 
         if ( isAllowedFileExtensions(fileExt) ){
             try {
-                sendPrintRequest(
+                return sendPrintRequest(
                     printer = arguments.printer,
                     base64String = fullPathToBase64( arguments.fullPath ),
                     fileExtension = fileExt,
@@ -82,8 +82,8 @@ component singleton
         cfhttp(
             method = "post",
             charset = "utf-8",
-            url = settings.apiUrl,
-            result = "local.result"
+            url = settings.apiUrl & "/print",
+            result = "local.result" 
         ) {
             cfhttpparam( name = "printer", type = "formfield", value = arguments.printer);
             cfhttpparam( name = "base64String", type = "formfield", value = arguments.base64String);
