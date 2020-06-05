@@ -1,4 +1,4 @@
-# scs-print
+# scs-print-helper
 
 [![Master Branch Build Status](https://img.shields.io/travis/egomezm/scs-print-module/master.svg?style=flat-square&label=master)](https://travis-ci.org/egomezm/scs-print-module)
 
@@ -8,7 +8,7 @@
 
 From a terminal or CML interface
 ```
-box install scs-print
+box install scs-print-helper
 ```
 
 
@@ -28,7 +28,7 @@ And then if you use this app, you’d have something like this in your Coldbox.c
 Override default ModuleConfig.cfc with your own settings for where the scs-print-api lives.
 ```
 settings = {
-    'scs-print' = {
+    'scs-print-helper' = {
         settings = {
             apiUrl = "http://[your domain]/print"
         }
@@ -38,10 +38,10 @@ settings = {
 
 *How to Use and implement your module*
 
-instanctiate your model, and the use the functions available
+instantiate your model, and the use the functions available
 on your controller or any other place
 ```
-    property name="scs-print" inject="coldbox:setting:scs-print";
+    property name="scs-print-helper" inject="coldbox:setting:scs-print-helper";
 ```
 to use it
 ```
