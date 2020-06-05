@@ -1,4 +1,4 @@
-# scs-print-helper
+# SCS Print Helper
 ---
 ![Master Branch Build Status(https://www.forgebox.io/view/print-helper)](https://www.forgebox.io/api/v1/entry/print-helper/badges/version)
 ![Master Branch Download Status(https://www.forgebox.io/view/print-helper)](https://www.forgebox.io/api/v1/entry/print-helper/badges/downloads)
