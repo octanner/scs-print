@@ -1,6 +1,7 @@
 # scs-print-helper
-
-[![Master Branch Build Status](https://img.shields.io/travis/egomezm/scs-print-module/master.svg?style=flat-square&label=master)](https://travis-ci.org/egomezm/scs-print-module)
+---
+![Master Branch Build Status(https://www.forgebox.io/view/scs-print-helper)](https://www.forgebox.io/api/v1/entry/scs-print-helper/badges/version)
+![Master Branch Download Status(https://www.forgebox.io/view/scs-print-helper)](https://www.forgebox.io/api/v1/entry/scs-print-helper/badges/downloads)
 
 ## A Module to help send jobs to the scs-print-api
 
