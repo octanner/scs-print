@@ -1,16 +1,16 @@
 {
-    "name":"scs-print",
-    "version":"1.4.0",
-    "author":"",
-    "location":"octanner/scs-print#v1.4.0",
-    "homepage":"https://github.com/octanner/scs-print",
-    "documentation":"https://github.com/octanner/scs-print",
+    "name":"Print Helper",
+    "version":"1.4.1",
+    "author":"Eduardo Gomez",
+    "location":"octanner/scs-print-helper#v1.4.1",
+    "homepage":"https://github.com/octanner/scs-print-helper",
+    "documentation":"https://github.com/octanner/scs-print-helper",
     "repository":{
         "type":"git",
-        "URL":"https://github.com/octanner/scs-print"
+        "URL":"https://github.com/octanner/scs-print-helper"
     },
-    "bugs":"https://github.com/octanner/scs-print/issues",
-    "slug":"scs-print",
+    "bugs":"https://github.com/octanner/scs-print-helper/issues",
+    "slug":"print-helper",
     "shortDescription":"A Module to help send jobs to the scs-print-api",
     "description":"A Module to help send jobs to the scs-print-api",
     "type":"modules",
@@ -24,7 +24,7 @@
         "coldbox":"tests/resources/app/coldbox"
     },
     "scripts":{
-        "postVersion":"package set location='octanner/scs-print#v`package version`'",
+        "postVersion":"package set location='octanner/scs-print-helper#v`package version`'",
         "onRelease":"publish",
         "postPublish":"!git push && !git push --tags"
     },
