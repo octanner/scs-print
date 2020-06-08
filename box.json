@@ -1,8 +1,8 @@
 {
     "name":"Print Helper",
-    "version":"1.4.1",
+    "version":"1.4.2",
     "author":"Eduardo Gomez",
-    "location":"octanner/scs-print-helper#v1.4.1",
+    "location":"octanner/scs-print-helper#v1.4.2",
     "homepage":"https://github.com/octanner/scs-print-helper",
     "documentation":"https://github.com/octanner/scs-print-helper",
     "repository":{
