@@ -59,6 +59,9 @@ component singleton {
 			case 'pdf':
 				isAllowed = true;
 				break;
+			case 'txt':
+				isAllowed = true;
+				break;
 			default:
 				isAllowed = false;
 				break;
