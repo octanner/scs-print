@@ -7,3 +7,4 @@
 .env
 server.json
 yarn.lock
+/.vscode/settings.json

@@ -15,7 +15,7 @@ component singleton {
 	) {
 		var fileExt = fileInfo( arguments.fullPath ).fileExtension;
 
-		if ( isAllowedFileExtensions( fileExt ) ) {
+		if ( listFindNoCase( 'pdf,txt', fileExt ) ) {
 			try {
 				return sendPrintRequest(
 					printer       = arguments.printer,
@@ -53,20 +53,6 @@ component singleton {
 		return fileInfo;
 	}
 
-	public boolean function isAllowedFileExtensions( required fileExtention ) {
-		var isAllowed = false;
-		switch ( lCase( arguments.fileExtention ) ) {
-			case 'pdf':
-				isAllowed = true;
-				break;
-			default:
-				isAllowed = false;
-				break;
-		}
-
-		return isAllowed;
-	}
-
 	public function fullPathToBase64( required fullPath ) {
 		return toBase64( fileReadBinary( arguments.fullPath ) );
 	}
@@ -80,40 +66,40 @@ component singleton {
 		numeric scale  = 100
 	) {
 		cfhttp(
-			method ='post',
-			charset='utf-8',
-			url    =settings.apiUrl & '/print',
-			result ='local.result'
+			method  = 'post',
+			charset = 'utf-8',
+			url     = settings.apiUrl & '/print',
+			result  = 'local.result'
 		) {
 			cfhttpparam(
-				name ='printer',
-				type ='formfield',
-				value=arguments.printer
+				name  = 'printer',
+				type  = 'formfield',
+				value = arguments.printer
 			);
 			cfhttpparam(
-				name ='base64String',
-				type ='formfield',
-				value=arguments.base64String
+				name  = 'base64String',
+				type  = 'formfield',
+				value = arguments.base64String
 			);
 			cfhttpparam(
-				name ='fileExtension',
-				type ='formfield',
-				value=arguments.fileExtension
+				name  = 'fileExtension',
+				type  = 'formfield',
+				value = arguments.fileExtension
 			);
 			cfhttpparam(
-				name ='copies',
-				type ='formfield',
-				value=arguments.copies
+				name  = 'copies',
+				type  = 'formfield',
+				value = arguments.copies
 			);
 			cfhttpparam(
-				name ='layout',
-				type ='formfield',
-				value=arguments.layout
+				name  = 'layout',
+				type  = 'formfield',
+				value = arguments.layout
 			);
 			cfhttpparam(
-				name ='scale',
-				type ='formfield',
-				value=arguments.scale
+				name  = 'scale',
+				type  = 'formfield',
+				value = arguments.scale
 			);
 		}
 
