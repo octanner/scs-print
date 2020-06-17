@@ -15,7 +15,7 @@ component singleton {
 	) {
 		var fileExt = fileInfo( arguments.fullPath ).fileExtension;
 
-		if ( isAllowedFileExtensions( fileExt ) ) {
+		if ( listFindNoCase( 'pdf,txt', fileExt ) ) {
 			try {
 				return sendPrintRequest(
 					printer       = arguments.printer,
@@ -51,23 +51,6 @@ component singleton {
 		structAppend( fileInfo, addtionalFileInfo, false );
 
 		return fileInfo;
-	}
-
-	public boolean function isAllowedFileExtensions( required fileExtension ) {
-		var isAllowed = false;
-		switch ( lCase( arguments.fileExtension ) ) {
-			case 'pdf':
-				isAllowed = true;
-				break;
-			case 'txt':
-				isAllowed = true;
-				break;
-			default:
-				isAllowed = false;
-				break;
-		}
-
-		return isAllowed;
 	}
 
 	public function fullPathToBase64( required fullPath ) {
