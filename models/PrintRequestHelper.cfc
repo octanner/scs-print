@@ -13,7 +13,7 @@ component singleton {
 		string layout  = 'portrait',
 		numeric scale  = 100
 	) {
-		var fileExt = fileInfo( arguments.fullPath ).fileExtension;
+		var fileExt = fileInformation( arguments.fullPath ).fileExtension;
 
 		if ( listFindNoCase( 'pdf,txt', fileExt ) ) {
 			try {
@@ -39,7 +39,7 @@ component singleton {
 		}
 	}
 
-	public any function fileInfo( required fullPath ) {
+	public any function fileInformation( required string fullPath ) {
 		var fileInfo          = getFileInfo( arguments.fullPath );
 		var addtionalFileInfo = {
 			'fileName' : listFirst(
@@ -53,7 +53,7 @@ component singleton {
 		return fileInfo;
 	}
 
-	public function fullPathToBase64( required fullPath ) {
+	public function fullPathToBase64( required string fullPath ) {
 		return toBase64( fileReadBinary( arguments.fullPath ) );
 	}
 

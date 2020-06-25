@@ -9,51 +9,47 @@
 
 From a terminal or CML interface
 ```
-box install print-helper
+    box install print-helper --save
 ```
 
 
 *How to Configure your module*
 
 Your ModuleConfig.cfc. will have by default this initial fake settings.
-Override them in the ColdBox.cfc settings.
+settings = {   
+        'apiUrl' = "http:fakesite.com"   
+    };   
 
-Default ModuleConfig.cfc
+**Step 1: Override default apiUrl to send jobs to your own URL (one time change)**
+
+Override default ModuleConfig.cfc with your own settings for where the scs-print-api lives. You can do this by Making sure you add 'print-helper' node to the *moduleSettings* object in the Coldbox.cfc  (if not present add it inside of the configure() function )
 ```
-settings = {
-            apiUrl = "http:fakesite.com"
-        };
+   		moduleSettings = {
+            'print-helper' = { 'apiUrl' : '[your Print API URL]' }
+        };  
+```
+FYI only, behind the scenes Coldbox will interpret the new settings correctly  in this manner (no need to insert this code)
+    property name="print-helper-URL"    inject="coldbox:setting:print-helper"; 
+
+
+
+**Step 2: Instanciate your Model from your newly installed Module**
+
+When you declare a module and you define a models folder then the framework automatically register all models in that folder for you using a namespace of @moduleName in this case @print-helper .
+In other words you will have to create a new property and inject the model of your choice. The pattern to inject its value is [Model]@[Module]
+```
+	property name='printHelper' inject='printRequestHelper@print-helper';
 ```
 
-And then if you use this app, you’d have something like this in your Coldbox.cfc or whatever…
-Override default ModuleConfig.cfc with your own settings for where the scs-print-api lives.
-```
-settings = {
-    'print-helper' = {
-        settings = {
-            apiUrl = "http://[your domain]/print"
-        }
-    }
-};
-```
+**Step 3: call the print() method and pass your data.**
 
-*How to Use and implement your module*
-
-instantiate your model, and the use the functions available
-on your controller or any other place
+Once your property has been declared and injected with the model, you are ready to use it, here is and example of the minimum required parameters you need to pass:
 ```
-    property name="print-helper" inject="coldbox:setting:print-helper";
+    printHelper.print(printer = [printer], fullPath = [fullPathToFIle]);
 ```
-to use it
-```
-scs-print-api.scsPrint(printer = [printer], fullPath = [fullPathToFIle]);
-```
-Here are additional parameters with their default values (but are not required.)
-```
-required string printer,
-required string fullPath,
-numeric copies = 1,
-string layout = "portrait",
-numeric scale = 100
-```
-.
+Here are additional parameters with their default values (but are not required.)  
+required string printer,  
+required string fullPath,  
+numeric copies = 1,  (Default is 1)
+string layout = "portrait", () ["landscape","portrait"] default is portrait)
+numeric scale = 100  (Default is 100)
