@@ -1,6 +1,6 @@
 component singleton {
 
-	property name='settings' inject='coldbox:setting:print-helper';
+	property name='settings' inject='coldbox:moduleSettings:print-helper';
 
 	public function init() {
 		return this;
